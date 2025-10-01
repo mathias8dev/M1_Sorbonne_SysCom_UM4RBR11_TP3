@@ -1,0 +1,142 @@
+[
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "multivariate_normal",
+        "importPath": "scipy.stats",
+        "description": "scipy.stats",
+        "isExtraImport": true,
+        "detail": "scipy.stats",
+        "documentation": {}
+    },
+    {
+        "label": "norm",
+        "importPath": "scipy.stats",
+        "description": "scipy.stats",
+        "isExtraImport": true,
+        "detail": "scipy.stats",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "DATA_PATH",
+        "kind": 5,
+        "importPath": "TP3_ETU",
+        "description": "TP3_ETU",
+        "peekOfCode": "DATA_PATH = 'Data/'\nimage_ext = ['.jpg']\nimages =  [os.path.join(DATA_PATH, f) for f in os.listdir(DATA_PATH) if f.endswith(\".jpg\")]\nX_train=np.empty((0, 2))\ny_train=[]\nfor name in images[0:-4]:\n    I= Image.open(name)\n    I = I.convert('YCbCr')\n    I = np.array(I)\n    I=np.reshape(I[:,:,1:3],[I.shape[0]*I.shape[1],2])",
+        "detail": "TP3_ETU",
+        "documentation": {}
+    },
+    {
+        "label": "image_ext",
+        "kind": 5,
+        "importPath": "TP3_ETU",
+        "description": "TP3_ETU",
+        "peekOfCode": "image_ext = ['.jpg']\nimages =  [os.path.join(DATA_PATH, f) for f in os.listdir(DATA_PATH) if f.endswith(\".jpg\")]\nX_train=np.empty((0, 2))\ny_train=[]\nfor name in images[0:-4]:\n    I= Image.open(name)\n    I = I.convert('YCbCr')\n    I = np.array(I)\n    I=np.reshape(I[:,:,1:3],[I.shape[0]*I.shape[1],2])\n    X_train = np.concatenate((X_train, I), axis=0)",
+        "detail": "TP3_ETU",
+        "documentation": {}
+    },
+    {
+        "label": "images",
+        "kind": 5,
+        "importPath": "TP3_ETU",
+        "description": "TP3_ETU",
+        "peekOfCode": "images =  [os.path.join(DATA_PATH, f) for f in os.listdir(DATA_PATH) if f.endswith(\".jpg\")]\nX_train=np.empty((0, 2))\ny_train=[]\nfor name in images[0:-4]:\n    I= Image.open(name)\n    I = I.convert('YCbCr')\n    I = np.array(I)\n    I=np.reshape(I[:,:,1:3],[I.shape[0]*I.shape[1],2])\n    X_train = np.concatenate((X_train, I), axis=0)\n    fichier_png= os.path.splitext(name)[0] + \".png\"",
+        "detail": "TP3_ETU",
+        "documentation": {}
+    },
+    {
+        "label": "X_train",
+        "kind": 5,
+        "importPath": "TP3_ETU",
+        "description": "TP3_ETU",
+        "peekOfCode": "X_train = X_train.astype('float64')\nX_test = X_test.astype('float64')\nX_train, pipo, y_train, pipo = train_test_split(X_train, y_train, train_size=1/1000, random_state=42)\nX_test, pipo, y_test, pipo = train_test_split(X_test, y_test, train_size=1/1000, random_state=42)\n# #############################################################################\n# I.\tChargement et visualisation des données\n#Pixel peau\nPeau_Train = X_train[np.where(y_train==1),:]\nPeau_Train = np.reshape(Peau_Train,(Peau_Train.shape[1],Peau_Train.shape[2] ))\n#Pixel non peau",
+        "detail": "TP3_ETU",
+        "documentation": {}
+    },
+    {
+        "label": "X_test",
+        "kind": 5,
+        "importPath": "TP3_ETU",
+        "description": "TP3_ETU",
+        "peekOfCode": "X_test = X_test.astype('float64')\nX_train, pipo, y_train, pipo = train_test_split(X_train, y_train, train_size=1/1000, random_state=42)\nX_test, pipo, y_test, pipo = train_test_split(X_test, y_test, train_size=1/1000, random_state=42)\n# #############################################################################\n# I.\tChargement et visualisation des données\n#Pixel peau\nPeau_Train = X_train[np.where(y_train==1),:]\nPeau_Train = np.reshape(Peau_Train,(Peau_Train.shape[1],Peau_Train.shape[2] ))\n#Pixel non peau\nNonpeau_Train = X_train[np.where(y_train==0),:]",
+        "detail": "TP3_ETU",
+        "documentation": {}
+    },
+    {
+        "label": "Peau_Train",
+        "kind": 5,
+        "importPath": "TP3_ETU",
+        "description": "TP3_ETU",
+        "peekOfCode": "Peau_Train = X_train[np.where(y_train==1),:]\nPeau_Train = np.reshape(Peau_Train,(Peau_Train.shape[1],Peau_Train.shape[2] ))\n#Pixel non peau\nNonpeau_Train = X_train[np.where(y_train==0),:]\nNonpeau_Train = np.reshape(Nonpeau_Train,(Nonpeau_Train.shape[1],Nonpeau_Train.shape[2] ))\nplt.plot(Nonpeau_Train[:,0], Nonpeau_Train[:,1], '.b', label='Non peau')\nplt.plot(Peau_Train[:,0], Peau_Train[:,1], '.r', label='Peau')\nplt.show()",
+        "detail": "TP3_ETU",
+        "documentation": {}
+    },
+    {
+        "label": "Peau_Train",
+        "kind": 5,
+        "importPath": "TP3_ETU",
+        "description": "TP3_ETU",
+        "peekOfCode": "Peau_Train = np.reshape(Peau_Train,(Peau_Train.shape[1],Peau_Train.shape[2] ))\n#Pixel non peau\nNonpeau_Train = X_train[np.where(y_train==0),:]\nNonpeau_Train = np.reshape(Nonpeau_Train,(Nonpeau_Train.shape[1],Nonpeau_Train.shape[2] ))\nplt.plot(Nonpeau_Train[:,0], Nonpeau_Train[:,1], '.b', label='Non peau')\nplt.plot(Peau_Train[:,0], Peau_Train[:,1], '.r', label='Peau')\nplt.show()",
+        "detail": "TP3_ETU",
+        "documentation": {}
+    },
+    {
+        "label": "Nonpeau_Train",
+        "kind": 5,
+        "importPath": "TP3_ETU",
+        "description": "TP3_ETU",
+        "peekOfCode": "Nonpeau_Train = X_train[np.where(y_train==0),:]\nNonpeau_Train = np.reshape(Nonpeau_Train,(Nonpeau_Train.shape[1],Nonpeau_Train.shape[2] ))\nplt.plot(Nonpeau_Train[:,0], Nonpeau_Train[:,1], '.b', label='Non peau')\nplt.plot(Peau_Train[:,0], Peau_Train[:,1], '.r', label='Peau')\nplt.show()",
+        "detail": "TP3_ETU",
+        "documentation": {}
+    },
+    {
+        "label": "Nonpeau_Train",
+        "kind": 5,
+        "importPath": "TP3_ETU",
+        "description": "TP3_ETU",
+        "peekOfCode": "Nonpeau_Train = np.reshape(Nonpeau_Train,(Nonpeau_Train.shape[1],Nonpeau_Train.shape[2] ))\nplt.plot(Nonpeau_Train[:,0], Nonpeau_Train[:,1], '.b', label='Non peau')\nplt.plot(Peau_Train[:,0], Peau_Train[:,1], '.r', label='Peau')\nplt.show()",
+        "detail": "TP3_ETU",
+        "documentation": {}
+    }
+]
